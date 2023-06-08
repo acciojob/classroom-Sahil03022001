@@ -7,16 +7,9 @@ import java.util.stream.Collectors;
 
 public class StudentRepository {
 
-    HashMap<String, Student> studentDb;
-    HashMap<String, Teacher> teacherDb;
-
-    HashMap<String, List<Student>> teacherStudentPairs;
-
-    public StudentRepository() {
-        studentDb = new HashMap<>();
-        teacherDb = new HashMap<>();
-        teacherStudentPairs = new HashMap<>();
-    }
+    HashMap<String, Student> studentDb = new HashMap<>();
+    HashMap<String, Teacher> teacherDb = new HashMap<>();
+    HashMap<String, List<Student>> teacherStudentPairs = new HashMap<>();
 
     public void addStudent(Student student) {
         studentDb.put(student.getName(), student);
@@ -52,7 +45,7 @@ public class StudentRepository {
                     .map(Student::getName)
                     .collect(Collectors.toList());
         } else {
-            return null;
+            return new ArrayList<>();
         }
     }
 
