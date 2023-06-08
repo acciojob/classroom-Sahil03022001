@@ -28,6 +28,8 @@ public class StudentRepository {
 
     public void addStudentTeacherPair(String student, String teacher) {
         if(studentDb.containsKey(student) && teacherDb.containsKey(teacher)) {
+            Teacher teacher1 = teacherDb.get(teacher);
+            teacher1.setNumberOfStudents(teacher1.getNumberOfStudents() + 1);
             if(!teacherStudentPairs.containsKey(teacher)) {
                 teacherStudentPairs.put(teacher, new ArrayList<>());
             }
